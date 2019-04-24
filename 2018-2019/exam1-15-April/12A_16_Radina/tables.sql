@@ -1,0 +1,24 @@
+DROP DATABASE IF EXISTS radina_12a;
+CREATE DATABASE radina_12a;
+USE radina_12a;
+
+CREATE TABLE user(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(30) NOT NULL,
+    username VARCHAR(30) NOT NULL UNIQUE,
+    number_of_total_views INTEGER DEFAULT 0
+);
+CREATE TABLE channel(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(30) NOT NULL,
+    user_id INTEGER,
+	FOREIGN KEY (user_id) REFERENCES user(id)
+);
+CREATE TABLE video(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(30) NOT NULL,
+    channel_id INTEGER,
+    views INTEGER DEFAULT 0,
+	FOREIGN KEY (channel_id) REFERENCES channel(id)
+);
+

@@ -1,0 +1,20 @@
+CREATE TABLE House(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    h_name VARCHAR(50) NOT NULL,
+    number_of_wins INT
+);
+
+CREATE TABLE Person(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    p_name VARCHAR(50) NOT NULL,
+    house_id INT NOT NULL,
+    FOREIGN KEY (house_id) REFERENCES House(id)
+);
+
+CREATE TABLE Battle(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    winner_id INT NOT NULL,
+    loser_id INT NOT NULL,
+	FOREIGN KEY (loser_id) REFERENCES Person(id),
+	FOREIGN KEY (winner_id) REFERENCES Person(id)
+);

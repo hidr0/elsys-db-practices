@@ -1,0 +1,25 @@
+DROP DATABASE IF EXISTS GOT;
+
+CREATE DATABASE GOT;
+
+USE GOT;
+
+CREATE TABLE house(
+	id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(15),
+    number_of_wins INTEGER DEFAULT 0
+);
+
+CREATE TABLE person(
+	id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(15),
+    house_id INTEGER,
+    FOREIGN KEY(house_id) REFERENCES house(id)
+);
+CREATE TABLE battle(
+	id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    winner_id INTEGER,
+    loser_id INTEGER,
+    FOREIGN KEY(winner_id) REFERENCES person(id),
+	FOREIGN KEY(loser_id) REFERENCES person(id)
+);
