@@ -1,0 +1,39 @@
+DROP DATABASE IF EXISTS db;
+CREATE DATABASE db;
+
+USE db;
+
+CREATE TABLE Blog (
+	id INTEGER AUTO_INCREMENT NOT NULL,
+    name VARCHAR(250),
+    number_of_likes INTEGER NOT NULL,
+    
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE BlogPost(
+	id INTEGER AUTO_INCREMENT NOT NULL,
+    name VARCHAR(250),
+    blog_id INTEGER NOT NULL,
+    
+    PRIMARY KEY(id),
+    FOREIGN KEY(blog_id) REFERENCES Blog(id)
+);
+
+CREATE TABLE User(
+	id INTEGER AUTO_INCREMENT NOT NULL,
+	user VARCHAR(250),
+    
+    PRIMARY KEY(id),
+    FOREIGN KEY(id) REFERENCES BlogPost(id)
+);
+
+CREATE TABLE Likes(
+	id INTEGER AUTO_INCREMENT NOT NULL,
+    user_id INTEGER NOT NULL,
+    blog_post INTEGER NOT NULL,
+    
+	PRIMARY KEY(id),
+    FOREIGN KEY(blog_post) REFERENCES Blog(id),
+    FOREIGN KEY(user_id) REFERENCES User(id)
+);

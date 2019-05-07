@@ -1,0 +1,31 @@
+DROP DATABASE IF EXISTS Tumblr;
+CREATE DATABASE Tumblr;
+USE Tumblr;
+
+CREATE TABLE Blog(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    number_of_likes INT DEFAULT 0
+);
+
+CREATE TABLE BlogPost(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    blog_id INT NOT NULL,
+    
+    FOREIGN KEY(blog_id) REFERENCES Blog(id)
+);
+
+CREATE TABLE User(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(40) NOT NULL
+);
+
+CREATE TABLE Likes(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    blog_post INT NOT NULL,
+    user_id INT NOT NULL,
+    
+    FOREIGN KEY(blog_post) REFERENCES BlogPost(id),
+    FOREIGN KEY(user_id) REFERENCES User(id)
+);
