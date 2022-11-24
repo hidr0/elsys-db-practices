@@ -1,0 +1,78 @@
+MySQL SELECT - принтирана избрана колона
+
+MySQL WHERE - условие, което се попълва и в него се слага условие
+
+MySQL AND, OR, NOT - логически операции и, или, не
+
+MySQL ORDER BY - подреди, по дедофт е във възходящ ред
+
+MySQL INSERT INTO - доави в таблицата данни
+
+MySQL NULL Values - нулирай данните
+
+MySQL UPDATE - промени избраните полета, не добавя нови неща, променя стари
+
+MySQL DELETE - изтрий
+
+MySQL LIMIT - илмитай, слагат се някакви граници (?)
+
+MySQL MIN and MAX - намира минималната и максимална стойност в колоната
+
+MySQL COUNT, AVG, SUM - преброй, средно аритметично, сбор в колоната
+
+MySQL LIKE - оператор за сравняване на стрингове
+
+MySQL Wildcards - не схванах
+
+MySQL IN - в нещо си - изброява се множество от елементи от дадена колона и се търси в това множество
+
+MySQL BETWEEN - между, тази и тази стойност
+
+MySQL Aliases - не схванах
+
+MySQL Joins - може би това е общото наименование на различните join-ове (?) - те хващат две или повече таблици и ги лепят заедно
+
+MySQL INNER JOIN - вътрешен join
+
+MySQL LEFT JOIN - ляв join
+
+MySQL RIGHT JOIN - десен join
+
+MySQL CROSS JOIN - някакъв  странен join
+
+MySQL Self Join - нямам идея
+
+MySQL UNION - не знам
+
+MySQL DISTINCT - като unique ама за куерита
+
+MySQL GROUP BY - групирай по (условие)
+
+
+MySQL Database - йес да
+
+MySQL Create DB - създай датабаза
+
+MySQL Drop DB - дропни базата
+
+MySQL Create Table - създай таблица
+
+MySQL Drop Table - дропни таблицата
+
+MySQL Alter Table - не помня
+
+MySQL Constraints - не знам
+
+MySQL Not Null - при създаване на поле задава условието да не е нула
+
+MySQL Unique - при създаване на поле задава, то да бъде уникално и да не се повтаря от друго
+
+MySQL Primary Key - основен ключ (индекс)
+
+MySQL Foreign Key - външен ключ от друга таблица
+
+MySQL Check - проверява стойността
+
+MySQL Default - задава се као не се въведе нищо да има стойност, която се попълва там автоматично
+
+MySQL Auto Increment - номерирай автоматично

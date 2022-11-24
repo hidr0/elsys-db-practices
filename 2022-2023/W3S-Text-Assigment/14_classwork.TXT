@@ -1,0 +1,40 @@
+MySQL SELECT - изкарва информация за дадената таблица
+MySQL WHERE - използва се за условие 
+MySQL AND, OR, NOT - и , или , не операции
+MySQL ORDER BY - подрежда по дадена колона 
+MySQL INSERT INTO - добавя нов запис в таблицата
+MySQL NULL Values - празна стойност
+MySQL UPDATE - актуализира даден запис
+MySQL DELETE - изтрива даден запис
+MySQL LIMIT - дава се някакъв лимит за редове които да се покажат
+MySQL MIN and MAX - намира минималната и максималната стойност на даденото поле като минава през всички записи
+MySQL COUNT, AVG, SUM - брой, средно аритметично и сума на дадено поле
+MySQL LIKE - сравнение на стринг
+MySQL Wildcards - не знам
+MySQL IN - проверява дали стойността на полето е в изброените стойности
+MySQL BETWEEN - проверява дали стойност на полето е между две други 
+MySQL Aliases - не знам
+MySQL Joins - джойнва 2 таблици
+MySQL INNER JOIN - джойнва общите записки на 2 таблици
+MySQL LEFT JOIN - джойнва всички записки от ляво със съвпадащите от дясно
+MySQL RIGHT JOIN -  джойнва всички записки от дясно със съвпадащите от ляво
+MySQL CROSS JOIN - джойнва всички записки от ляво и от дясно
+MySQL Self Join - не знам
+MySQL UNION - обединява 2 таблици
+MySQL DISTINCT - не знам
+MySQL GROUP BY - групира по колони
+
+MySQL Database - база данни
+MySQL Create DB - създава база данни
+MySQL Drop DB - унищожава база данни
+MySQL Create Table - създава таблица
+MySQL Drop Table - унищожава таблица
+MySQL Alter Table -  променя таблицата
+MySQL Constraints - не знам
+MySQL Not Null - не е празна стойност
+MySQL Unique - уникално
+MySQL Primary Key - уникален ключ
+MySQL Foreign Key - свързва две таблици
+MySQL Check - проверява дали стойност е в колона
+MySQL Default - стойност по подразбиране
+MySQL Auto Increment - инкрементира се автоматично

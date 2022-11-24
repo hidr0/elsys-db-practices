@@ -1,0 +1,39 @@
+MySQL SELECT - взима таблица
+MySQL WHERE - филтиране 
+MySQL AND, OR, NOT - логически операци
+MySQL ORDER BY - подрежда
+MySQL INSERT INTO - вкарва в таблица
+MySQL NULL Values - нямат стойност
+MySQL UPDATE - ъпдейтва редове в таблицата
+MySQL DELETE - трие редове в таблицата
+MySQL LIMIT - слага лимит на броя резултати
+MySQL MIN and MAX - взима мин. и макс. стойност от дадена колона
+MySQL COUNT, AVG, SUM - агрегатни функции
+MySQL LIKE - сравнение на стрингове
+MySQL Wildcards - формат за символите за операция LIKE
+MySQL IN - проверява дали дадена стойност е равна на някоя от стойностите в даден лист
+MySQL BETWEEN - проверява дали дадена стойност е между други две стойности
+MySQL Aliases - използва се за даване на друго име
+MySQL Joins - комбинира таблици
+MySQL INNER JOIN -взима общото между две таблици
+MySQL LEFT JOIN - взима общото между две таблици и всичко в лявата
+MySQL RIGHT JOIN - взима общото между две таблици и всичко в дясната
+MySQL CROSS JOIN - не сме го учили
+MySQL Self Join - не сме го учили
+MySQL UNION - не сме го учили
+MySQL DISTINCT - връща само един при селект
+MySQL GROUP BY - групира по някаква колона
+
+MySQL Create DB - създава датабаза
+MySQL Drop DB - изтрива датабаза
+MySQL Create Table - създава таблица
+MySQL Drop Table - изтива таблица
+MySQL Alter Table - ъпдейтва таблица
+
+MySQL Not Null - не не нищо 
+MySQL Unique - трябва да е различно
+MySQL Primary Key - идентификатор на дадена таблица
+MySQL Foreign Key - изолзва се, за да се достъпи таблица от друга таблица
+MySQL Check - прави проверка
+MySQL Default - слага стойност, ако не е подадена
+MySQL Auto Increment - вдига с едно на всяко извикване
