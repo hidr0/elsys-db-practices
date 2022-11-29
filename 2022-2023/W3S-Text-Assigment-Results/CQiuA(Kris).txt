@@ -1,0 +1,40 @@
+1 MySQL SELECT - избираме кои колони да се покажат от дадена таблица
+0(не само да се показват) MySQL WHERE - условие, по което да се показват дадени записи от таблицата
+1 MySQL AND, OR, NOT - логически операции, които се използват при WHERE
+1 MySQL ORDER BY - по коя колона да се сортират данните
+1 MySQL INSERT INTO - да се добави запис в дадена таблица
+1 MySQL NULL Values - нямат стойност
+1 MySQL UPDATE - update на запис
+1 MySQL DELETE - delete а запис
+1 MySQL LIMIT - лимитиране на колко записа да се покажат
+1 MySQL MIN and MAX - показват минимална/максимална от дадена колона
+1 MySQL COUNT, AVG, SUM - изпозва се за броене, средноаритметично, сума на стойности от колона
+0(не само на стрингове) MySQL LIKE - изпозва се за сравнение на стрингове
+0(не само в LIKE) MySQL Wildcards - използва се в LIKE, за да се намират подобни стрингове. Например %
+0(? не) MySQL IN - проверка дали стойности се намират някъде (таблица)
+0(общо + неточно) MySQL BETWEEN - между две стойности
+1 MySQL Aliases - временно наименование на колона
+1 MySQL Joins - присъединяване на таблица по някаква обща/matching колона
+1(matching на български е съвпадащ/и) MySQL INNER JOIN - изкарва matching стойности
+1 MySQL LEFT JOIN - изкарва всичко от лявата и matching стойности от дясната
+1 MySQL RIGHT JOIN - изкарва всичко от дясната и matching стойности от лявата
+0(неточно) MySQL CROSS JOIN - изкарва всички стойности и от двете
+1 MySQL Self Join - предполагам таблица е join-ата със себе си  
+MySQL UNION - не сме го учили
+1 MySQL DISTINCT - същото като UNIQUE ама за query
+1 MySQL GROUP BY - групира по дадена колона
+
+MySQL Database - датабаза, в която се добавят таблици
+MySQL Create DB - създаване на датабаза
+MySQL Drop DB - да се махне датабаза  
+MySQL Create Table - създаване на таблица
+MySQL Drop Table - да се махне таблица
+MySQL Alter Table - промяна на таблица
+MySQL Constraints - ограничения
+MySQL Not Null - не-празни стойности. Изпозва се при WHERE
+MySQL Unique - стойност да е уникална/да не се повтаря
+MySQL Primary Key - уникален ключ в дадена таблица (ID)
+MySQL Foreign Key - връзка към PRIMARY KEY на друга таблица
+MySQL Check - проверява за стойности
+MySQL Default - ако не се подаде стойност при добавяне на запис, каква да бъде тази стойност
+MySQL Auto Increment - със всяко добавяне автоматично да се увеличава с едно. Използва се при PRIMARY KEY
