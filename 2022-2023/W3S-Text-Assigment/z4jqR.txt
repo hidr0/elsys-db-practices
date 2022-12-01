@@ -1,0 +1,38 @@
+MySQL SELECТ - връща информация от таблицата
+MySQL WHERE - условие за филтър
+MySQL AND, OR, NOT - логични операции
+MySQL ORDER BY - сортира ги по условие
+MySQL INSERT INTO - вкарва нови редове в таблицата
+MySQL NULL Values - редове, които нямат стойност
+MySQL UPDATE - ъпдейтва редове
+MySQL DELETE - изтрива редове
+MySQL LIMIT - лимитира колко колони да се върнат
+MySQL MIN and MAX - връщат най-малката и най-голямата стойност от колоната
+MySQL   COUNT - броя на редовете, които съвпадат с дадено условие
+        AVG - средната стойност на подадените редове
+        SUM - сборът от редовете
+MySQL LIKE - сравнява текст
+MySQL Wildcards - шаблон за стринг
+MySQL IN - могат да се подадат няколко стойност и да се сравни с тях
+MySQL BETWEEN - като IN, но между две стойности
+MySQL Aliases - дава име на колоната,таблицата или ред
+MySQL Joins - комбинира редове от две+ таблици
+MySQL INNER JOIN - имат общи стойности и в двете таблици
+MySQL LEFT JOIN - всичко от лявата таблица и общите стойности
+MySQL RIGHT JOIN - всичко от дясната таблица и общите стойности
+MySQL DISTINCT - връща един ред, използва се в WHERE
+MySQL GROUP BY - групира
+MySQL Create DB - създаване на датабаза
+MySQL Drop DB - изтрива датабаза
+MySQL Create Table - създава таблица
+MySQL Drop Table - изтрива таблица
+MySQL Alter Table - добавя колона в таблицата
+MySQL Constraints - при създаване на таблицата, се задават лимити за колоните
+MySQL Not Null - стойността да не е NULL
+MySQL Unique - стойността да е единствена
+MySQL Primary Key - стоността, която се използва за индексиране
+MySQL Foreign Key - използва се за свързване с други таблици
+MySQL Check - наша проверка на която стойността трябва да отговаря
+MySQL Default - стойността по подразбиране
+MySQL Auto Increment - стойността се генерира автоматично
+

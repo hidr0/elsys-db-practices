@@ -1,0 +1,40 @@
+﻿MySQL SELECT- изкарва информация от дадена таблица
+MySQL WHERE- филтрира информацията
+MySQL AND, OR, NOT- И, ИЛИ, НЕ
+MySQL ORDER BY- сортира резултатите от SELECT-a
+MySQL INSERT INTO- Вкарва ред в таблицата
+MySQL NULL Values- не значи нищо
+MySQL UPDATE- променя информация в таблицата
+MySQL DELETE- трие неща в таблицата
+MySQL LIMIT- изкарва максимум *числото след LIMIT* резултата
+MySQL MIN and MAX- връща най-малка/най-голяма клетка от колоната
+MySQL COUNT, AVG, SUM- преброява каквото му зададем, връща средната стойност на дадена колона, връща сбора от вс клетки на колоната
+MySQL LIKE- проверява за подобна информация (не еднаква) пр. съдържа даден символ/мн символи
+MySQL Wildcards- силволи, които могат да бъдат заместени със всякакви други
+MySQL IN-можем да проверяваме от много стойности
+MySQL BETWEEN- избира се между две стойности
+MySQL Aliases- не знам
+MySQL Joins- обединява две таблици по дадени колони
+MySQL INNER JOIN- не знам
+MySQL LEFT JOIN- обединява, използвайки всички колони от лявата таблица и общите от дясната
+MySQL RIGHT JOIN- обединява, използвайки всички колони от дясната таблица и общите от лявата
+MySQL CROSS JOIN- не знам
+MySQL Self Join- не знам
+MySQL UNION- не сме учили
+MySQL DISTINCT- като unique но за query-та
+MySQL GROUP BY- групира информация по някоя колона
+
+MySQL Database - датабаза... сериозно тва как се обяснява
+MySQL Create DB - създава база данни
+MySQL Drop DB - трие базa данни
+MySQL Create Table - създава таблица
+MySQL Drop Table - трие таблица
+MySQL Alter Table - променя таблица
+MySQL Constraints - ограничения на колоната
+MySQL Not Null - всичко без null
+MySQL Unique - без повторения
+MySQL Primary Key - id
+MySQL Foreign Key - id на елементи от друга таблица
+MySQL Check - проверява нещо
+MySQL Default - ако не се зададе стойност, дава се тази
+MySQL Auto Increment - автоматично зададена стойност
