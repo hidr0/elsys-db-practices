@@ -83,3 +83,60 @@ SELECT * FROM Student;
 SELECT * FROM School;
 SELECT * FROM Class;
 
+--1
+select School.name, count(Student.id) from School
+left join Class on Class.school_id = School.id
+left join Student on Student.class_id = Class.id
+GROUP BY School.name
+order by count(Student.id) desc;
+
+-- 2
+select School.name, avg(Grade.grade) from School
+left join Class on Class.school_id = School.id
+left join Student on Student.class_id = Class.id
+left join Grade on Grade.student_id = Student.id
+GROUP BY School.name
+ORDER BY avg(Grade.grade) desc
+limit 1;
+
+-- 3
+select Grade.grade, Subject.name, Student.name, Class.class, Class.paralelka, School.name from School
+left join Class on Class.school_id = School.id
+left join Student on Student.class_id = Class.id
+left join Grade on Grade.student_id = Student.id
+left join Subject on Subject.id = Grade.subject_id;
+
+-- 4
+select Student.name, avg(Grade.grade) from Student
+left join Grade on Grade.student_id = Student.id
+left join Subject on Subject.id = Grade.subject_id
+where Student.name like "G%o" and 
+month(Grade.date) not in (1,3,9) 
+and year(date) = 2022
+and Subject.name in ("Math", "Sports")
+GROUP BY Student.name
+order by avg(Grade.grade) desc
+limit 1;
+
+-- 5
+select School.name, Class.class, Class.paralelka, avg(Grade.grade) from School
+left join Class on Class.school_id = School.id
+left join Student on Student.class_id = Class.id
+left join Grade on Grade.student_id = Student.id
+left join Subject on Subject.id = Grade.subject_id
+group by School.name, Class.class, Class.paralelka
+order by avg(Grade.grade) asc;
+
+
+-- 6
+select distinct Student.name, Subject.name from Student
+left join Grade on Grade.student_id = Student.id
+left join Subject on Grade.subject_id = Subject.id
+where Grade.grade is not null;
+
+-- 7
+select School.name from School
+left join Class on Class.school_id = School.id
+left join Student on Student.class_id = Class.id
+where Student.class_id is null;
+
