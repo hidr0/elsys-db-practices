@@ -66,17 +66,22 @@ INSERT INTO Student(name, age, class_id) VALUES("b", 9, 2);
 INSERT INTO Student(name, age, class_id) VALUES("b2", 9, 3);
 INSERT INTO Student(name, age, class_id) VALUES("b3", 9, 3);
 INSERT INTO Student(name, age, class_id) VALUES("b4", 9, 4);
+INSERT INTO Student(name, age, class_id) VALUES("mqe", 11, 3);
 INSERT INTO Subject(name) VALUES('Bel');
+INSERT INTO Subject(name) VALUES('Mat');
 INSERT INTO Grade(grade, date, student_id, subject_id) VALUES(5, '2008-11-11', 1, 1);
 INSERT INTO Grade(grade, date, student_id, subject_id) VALUES(6, '2007-11-11', 1, 1);
 INSERT INTO Grade(grade, date, student_id, subject_id) VALUES(3, '2006-11-11', 1, 1);
 INSERT INTO Grade(grade, date, student_id, subject_id) VALUES(4, '2009-11-11', 2, 1);
+INSERT INTO Grade(grade, date, student_id, subject_id) VALUES(4, '2022-11-11', 2, 1);
+INSERT INTO Grade(grade, date, student_id, subject_id) VALUES(4, '2022-11-10', 2, 2);
 INSERT INTO Grade(grade, date, student_id, subject_id) VALUES(4, '2009-10-11', 2, 1);
 INSERT INTO Grade(grade, date, student_id, subject_id) VALUES(6, '2010-11-11', 3, 1);
 INSERT INTO Grade(grade, date, student_id, subject_id) VALUES(3, '2010-11-11', 4, 1);
 INSERT INTO Grade(grade, date, student_id, subject_id) VALUES(4, '2010-11-12', 5, 1);
 INSERT INTO Grade(grade, date, student_id, subject_id) VALUES(5, '2010-11-13', 6, 1);
 INSERT INTO Grade(grade, date, student_id, subject_id) VALUES(6, '2010-11-14', 7, 1);
+INSERT INTO Grade(grade, date, student_id, subject_id) VALUES(6, '2022-11-14', 7, 1);
 -- 1
 /*SELECT School.name, COUNT(Student.id) FROM School
 LEFT JOIN Class ON School.id = Class.school_id
@@ -103,11 +108,13 @@ LEFT JOIN Subject ON Subject.id = Grade.subject_id;*/
 -- 4 
 /*SELECT Student.name, AVG(Grade.grade) FROM Student
 LEFT JOIN Grade ON Student.id = Grade.student_id
+LEFT JOIN Subject ON Subject.id = Grade.subject_id
 WHERE Student.name LIKE("M%e")
 AND MONTH(Grade.date) NOT IN(1, 3, 9)
+AND YEAR(Grade.grade) = 2022
+AND Subject.name IN('Mat', 'Sports')
 GROUP BY Student.name
-LIMIT 1;
-*/
+LIMIT 1;*/
 
 -- 5
 /*SELECT School.name, Class.class, Class.paralelka, AVG(Grade.grade) FROM School
