@@ -107,7 +107,7 @@ where Student.name like("M%e") and Grade.date not like("%-01-%") and
 Grade.date not like("%-03-%") and Grade.date not like("%-09-%")
 and Grade.date like("2022-%") and (Subject.name="Math" or Subject.name="Sports")
 group by(Student.name)
-order by(avg(Grade.grade))
+order by(avg(Grade.grade)) desc
 limit 1; 
 
 #5
