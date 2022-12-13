@@ -93,12 +93,14 @@ insert into Grade(grade, subject_id, student_id, date_of_write) values(3, 3, 6, 
 insert into Grade(grade, subject_id, student_id, date_of_write) values(2, 1, 7, "2022-3-4");
 insert into Grade(grade, subject_id, student_id, date_of_write) values(3, 1, 7, "2022-3-4");
 
+-- zad 1
 select School.name, Count(Student.id) from School
 LEFT JOIN Class on School.id = Class.school
 left join Student ON Class.id = Student.class
 group by School.name 
 order by count(Student.id) desc;
 
+-- zad 2
 select School.name, AVG(Grade.grade) from School
 LEFT JOIN Class on School.id = Class.school
 left join Student ON Class.id = Student.class
@@ -107,12 +109,14 @@ right join Subject on Grade.subject_id = Subject.id
 group by School.name, Subject.name
 order by AVG(Grade.grade) desc;
 
+-- zad 3
 Select Grade.grade, Subject.name, Student.name, Class.class, Class.paralelka, School.name, Grade.date_of_write from Grade
 right join Subject on Subject.id = Grade.subject_id
 left join Student on Student.id = Grade.student_id
 left join Class on Student.class = Class.id
 left join School on School.id = Class.school;
 
+-- zad 4
 Select Student.name, AVG(Grade.grade) from Grade
 Right join Student on Student.id = Grade.student_id
 left join Subject on Grade.subject_id = Subject.id
@@ -121,6 +125,7 @@ group by Student.name
 order by AVG(Grade.grade) DESC
 limit 1;
 
+-- zad 5
 select School.name, Class.class, Class.paralelka, avg(Grade.grade) from School
 left join Class on Class.school = School.id
 left join Student on Student.class = Class.id
@@ -129,10 +134,12 @@ left join Subject on Grade.subject_id = Subject.id
 group by School.name, Class.class, Class.paralelka
 order by avg(Grade.grade);
 
+-- zad 6
 select distinct Student.name, Subject.name, Grade.grade from Grade
 right join Student on Grade.student_id = Student.id
 left join Subject on Subject.id = Grade.subject_id;
 
+-- zad 7
 select School.name from School
 left join Class on Class.school = School.id
 left join Student on Student.class = Class.id
