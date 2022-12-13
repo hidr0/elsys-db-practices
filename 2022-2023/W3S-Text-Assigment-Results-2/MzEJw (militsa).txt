@@ -1,0 +1,41 @@
+﻿0 MySQL SELECT - взима таблица (извежда таблица)
+0 MySQL WHERE - филтиране (на какво)
+1 MySQL AND, OR, NOT - логически операци
+0 MySQL ORDER BY - подрежда (какво)
+1 MySQL INSERT INTO - вкарва в таблица
+1 MySQL NULL Values - нямат стойност
+1 MySQL UPDATE - ъпдейтва редове в таблицата
+1 MySQL DELETE - трие редове в таблицата 
+1 MySQL LIMIT - слага лимит на броя резултати
+1 MySQL MIN and MAX - взима мин. и макс. стойност от дадена колона
+1 MySQL COUNT, AVG, SUM - агрегатни функции
+1 MySQL LIKE - сравнение на стрингове
+0 MySQL Wildcards - формат за символите за операция LIKE (не е формат)
+1 MySQL IN - проверява дали дадена стойност е равна на някоя от стойностите в даден лист
+1 MySQL BETWEEN - проверява дали дадена стойност е между други две стойности
+1 MySQL Aliases - използва се за даване на друго име
+1 MySQL Joins - комбинира таблици
+1 MySQL INNER JOIN -взима общото между две таблици
+1 MySQL LEFT JOIN - взима общото между две таблици и всичко в лявата
+1 MySQL RIGHT JOIN - взима общото между две таблици и всичко в дясната
+0 MySQL CROSS JOIN - не сме го учили
+0 MySQL Self Join - не сме го учили
+0 MySQL UNION - не сме го учили
+0 MySQL DISTINCT - връща само един при селект (връща уникални резултати)
+1 MySQL GROUP BY - групира по някаква колона
+
+1 MySQL Create DB - създава датабаза
+1 MySQL Drop DB - изтрива датабаза
+1 MySQL Create Table - създава таблица
+1 MySQL Drop Table - изтива таблица
+0 MySQL Alter Table - ъпдейтва таблица (какво в таблицата)
+
+0 MySQL Not Null - не не нищо (ненам)
+1 MySQL Unique - трябва да е различно
+1 MySQL Primary Key - идентификатор на дадена таблица
+1 MySQL Foreign Key - изолзва се, за да се достъпи таблица от друга таблица
+1 MySQL Check - прави проверка
+1 MySQL Default - слага стойност, ако не е подадена
+1 MySQL Auto Increment - вдига с едно на всяко извикване
+
+27
