@@ -1,138 +1,141 @@
-DROP DATABASE IF EXISTS School ;
-CREATE DATABASE School;
+DROP DATABASE IF EXISTS SCHOOLDB;
+CREATE DATABASE SCHOOLDB;
+USE SCHOOLDB;
 
-use School;
+set sql_safe_updates = 0;
+set sql_mode = only_full_group_by;
 
-CREATE TABLE School_T(
-	id int primary key auto_increment,
-    name VARCHAR(50) not null unique
-  
-);
-INSERT INTO SCHOOL_T(name) Values("TUES");
-INSERT INTO SCHOOL_T(name) Values("Purwa nemska");
-INSERT INTO SCHOOL_T(name) Values("125 SU");
-INSERT INTO SCHOOL_T(name) Values("31 SU");
-
-CREATE TABLE CLASS(
-	id int primary key auto_increment,
-    class int not null check(class > 0 AND class < 13),
-    paralelka ENUM("A", "B", "V"),
-    school_id int not null ,
-	foreign key(school_id) references School_T(id)    
-);
-INSERT INTO CLASS(class, paralelka, school_id) VALUES(11, "V", 1);
-INSERT INTO CLASS(class, paralelka, school_id) VALUES(8, "B", 2);
-INSERT INTO CLASS(class, paralelka, school_id) VALUES(7, "A", 3);
-
-
-
-CREATE TABLE STUDENT(
-	id int  primary key auto_increment,
-    name VARCHAR(50) not null unique,
-    age int check(age >= 6), -- шест понеже тогава се почва най рано училище
-    class_id int not null, 
-    foreign key(class_id) references Class(id)
-);
-INSERT INTO STUDENT(name, age, class_id) VALUES("Ivan", 17, 1 );
-INSERT INTO STUDENT(name, age, class_id) VALUES("Martin", 14, 2 );
-INSERT INTO STUDENT(name, age, class_id) VALUES("Mine", 13, 2);
-
-CREATE TABLE Address(
-	id int primary key auto_increment,
-    street VARCHAR(20) not null unique,
-	student_id int not null unique,
-    foreign key(student_id) references Student(id)
-);
-INSERT INTO ADdRESS(street, student_id) VALUES("Raina Knqginiq 2", 1);
-INSERT INTO ADdRESS(street, student_id) VALUES("Raina Knqginiq 3", 2);
-INSERT INTO ADdRESS(street, student_id) VALUES("Novoselska", 3);
-
-CREATE TABLE SUBJECT(	
-	id int primary key auto_increment,
-    name ENUM("BEL", "Math", "Sports")
+CREATE TABLE School (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name varchar(50) NOT NULL UNIQUE
 );
 
+CREATE TABLE Class (
+    id int PRIMARY KEY AUTO_INCREMENT,
+    class int CHECK(class>0 AND class<13),
+    paralelka ENUM("A","B","V") NOT NULL,
+    school_id int NOT NULL,
+    FOREIGN KEY (school_id) REFERENCES School(id)
+);
+
+CREATE TABLE Student (
+    id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(50) NOT NULL UNIQUE,
+    age int NOT NULL CHECK(age>0),
+    class_id int NOT NULL,
+    FOREIGN KEY (class_id) REFERENCES Class(id)
+);
+
+CREATE TABLE Subject (
+    id int PRIMARY KEY AUTO_INCREMENT,
+    name ENUM("Bel","Math","Sports") NOT NULL
+    -- student_id int NOT NULL,
+    -- FOREIGN KEY (student_id) REFERENCES Student(id)
+);
+
+CREATE TABLE Grade(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    subject_id int NOT NULL,
+    FOREIGN KEY(subject_id) REFERENCES Subject(id),
+    student_id int NOT NULL,
+    FOREIGN KEY(student_id) REFERENCES Student(id),
+    grade float NOT NULL check(grade>1 AND grade<7),
+    date date NOT NULL
+);
+
+CREATE TABLE Address (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    street varchar(50) NOT NULL,
+    student_id int NOT NULL UNIQUE,
+    FOREIGN KEY (student_id) REFERENCES Student(id)
+);
+
+
+INSERT INTO School(name) VALUES("TUES");
+INSERT INTO School(name) VALUES("Jonka");
+INSERT INTO School(name) VALUES("Empty School :(");
+
+INSERT INTO Class (class,paralelka,school_id) VALUES(11,"V",1);
+INSERT INTO Class (class,paralelka,school_id) VALUES(11,"B",1);
+INSERT INTO Class (class,paralelka,school_id) VALUES(10,"A",2);
+INSERT INTO Class (class,paralelka,school_id) VALUES(8,"A",2);
+
+INSERT INTO Class (class,paralelka,school_id) VALUES(8,"A",3); -- prazna paralelka v prazno uchilishte
+
+INSERT INTO Student(name,age,class_id) VALUES("Yoan",17, 1);
+INSERT INTO Student(name,age,class_id) VALUES("Kris",17, 1);
+INSERT INTO Student(name,age,class_id) VALUES("Burak",17, 1);
+INSERT INTO Student(name,age,class_id) VALUES("Tor",17, 2);
+INSERT INTO Student(name,age,class_id) VALUES("Madeline",17, 2);
+INSERT INTO Student(name,age,class_id) VALUES("Ibrahim",16, 3);
+INSERT INTO Student(name,age,class_id) VALUES("Ahmed",15, 3);
+
+INSERT INTO Subject(name) VALUES("Bel");
 INSERT INTO Subject(name) VALUES("Math");
-INSERT INTO Subject(name) VALUES("BEL");
 INSERT INTO Subject(name) VALUES("Sports");
 
+INSERT INTO Grade (subject_id,student_id,grade,date) VALUES(1,1,6,"2022-01-01");
+INSERT INTO Grade (subject_id,student_id,grade,date) VALUES(1,1,4,"2022-01-01");
+INSERT INTO Grade (subject_id,student_id,grade,date) VALUES(1,2,5,"2022-01-01");
+INSERT INTO Grade (subject_id,student_id,grade,date) VALUES(1,2,6,"2022-01-01");
+INSERT INTO Grade (subject_id,student_id,grade,date) VALUES(1,3,6,"2022-01-01");
+INSERT INTO Grade (subject_id,student_id,grade,date) VALUES(1,4,6,"2022-01-01");
+INSERT INTO Grade (subject_id,student_id,grade,date) VALUES(2,5,6,"2022-02-02");
+INSERT INTO Grade (subject_id,student_id,grade,date) VALUES(1,6,6,"2022-01-01");
+INSERT INTO Grade (subject_id,student_id,grade,date) VALUES(1,6,2,"2022-01-01");
+INSERT INTO Grade (subject_id,student_id,grade,date) VALUES(1,7,3,"2022-01-01");
 
-CREATE TABLE GRADE(
-	id int primary key auto_increment,
-    grade int not null check(grade > 1 AND 	grade < 7),
-    grade_date date,
-    student_id int not null ,
-    foreign key(student_id) references Student(id),
-    subject_id int not null,
-    foreign key(subject_id) references Subject(id)
-);
-
-INSERT INTO GRADE(grade, grade_date, student_id, subject_id) VALUES(6, "2022-12-5", 1, 1);
-INSERT INTO GRADE(grade, grade_date, student_id, subject_id) VALUES(5, "2022-12-5", 1, 2);
-INSERT INTO GRADE(grade, grade_date, student_id, subject_id) VALUES(5, "2022-12-5", 2, 1);
-INSERT INTO GRADE(grade, grade_date, student_id, subject_id) VALUES(6, "2022-12-5", 3, 3);
-INSERT INTO GRADE(grade, grade_date, student_id, subject_id) VALUES(6, "2022-12-5", 3, 3);
 
 -- 1
- select School_t.name as "School", count(student.id) as "Students count" from School_t
- left join Class on class.school_id = School_t.id
- left join Student on student.class_id = class.id
- group by School_t.name
- order by count(student.id) desc;
+SELECT School.name, COUNT(Student.id) FROM School
+LEFT JOIN Class ON Class.school_id = School.id
+LEFT JOIN Student ON Student.class_id = Class.id
+GROUP BY School.id;
 
- 
+-- 2 
+SELECT School.name, AVG(Grade.grade) FROM School
+LEFT JOIN Class ON Class.school_id = School.id
+LEFT JOIN Student ON Student.class_id = Class.id 
+LEFT JOIN Grade ON Grade.student_id = Student.id
+GROUP BY School.name
+ORDER BY AVG(Grade.grade) DESC
+LIMIT 1;
 
--- 2
-select School_t.name as "School", AVG(Grade.grade) as "Sreden uspeh" from school_t
-left join Class on class.school_id = School_t.id
-left join Student on student.class_id = class.id
-left join GRADE on grade.student_id = student.id
-group by School_t.name
- order by AVG(Grade.grade) desc limit 1;
- 
- -- 3
- select Student.name as "Student", class.class, class.paralelka, school_t.name as "School", subject.name as "Subject", grade.grade, grade.grade_date from GRADE
- left join Student on student.id = grade.student_id
- left join Subject on subject.id = grade.subject_id
- left join class on class.id = student.class_id
- left join School_t on School_t.id = class.school_id;
- 
- -- 4 
-select Student.name, avg(grade.grade) from grade
-left join Student on student.id = grade.student_id
-left join Subject on subject.id = grade.subject_id
-where student.name like "M%e" AND month(grade.grade_date) not in (3,9,5) and year(grade.grade_date) = 2022 AND (Subject.name like "Math" or Subject.name like "Sports") 
-group by student.name
-order by avg(grade.grade) asc limit 1;
+-- 3
+select Student.name,Subject.name,Grade.grade,Class.class,Class.paralelka,Grade.date,School.name from Student
+LEFT JOIN Class ON Class.id = Student.class_id 
+LEFT JOIN School ON School.id = Class.school_id
+LEFT JOIN Grade ON Student.id = Grade.student_id
+LEFT JOIN Subject ON Subject.id = Grade.subject_id;
 
+-- 4
+SELECT Student.name, AVG(Grade.grade) FROM Grade
+LEFT JOIN Student ON Student.id = Grade.student_id 
+LEFT JOIN Subject ON Subject.id = Grade.subject_id
+WHERE Student.name LIKE ("M%e") 
+AND MONTH(Grade.date) NOT IN (1, 3, 9) AND YEAR(Grade.date) = "2022" 
+AND Subject.name IN ("Math", "Sports")
+GROUP BY Student.name
+ORDER BY AVG(Grade.grade) DESC
+LIMIT 1;
 
 -- 5 
- select School_t.name as "School", class.class, class.paralelka, avg(grade.grade) as "Sreden uspeh"from class
- right join School_t on class.school_id = School_t.id
-left join student on class.id = student.class_id
-left join Grade on grade.student_id = student.id
-left join Subject on grade.subject_id = subject.id
-group by school_t.name
-order by  avg(grade.grade) asc ;
-
+SELECT School.name, Class.class, Class.paralelka, AVG(Grade.grade) FROM School
+LEFT JOIN Class ON Class.school_id = School.id
+LEFT JOIN Student ON Student.class_id = Class.id 
+LEFT JOIN Grade ON Grade.student_id = Student.id
+GROUP BY School.name, Class.class, Class.paralelka
+ORDER BY AVG(Grade.grade) ASC;
 
 -- 6
-select Distinct student.name as "Student", subject.name as "Subject" from Student
-right join GRADE on grade.student_id = student.id
-left join Subject on grade.subject_id = subject.id;  
+SELECT DISTINCT Student.name, Subject.name FROM Subject
+LEFT JOIN Grade ON Grade.subject_id = Subject.id
+LEFT JOIN Student ON Grade.student_id = Student.id
+WHERE Grade.grade IS NOT NULL;
 
-
--- 7 nowoto
- select School_t.name as "School", count(student.id) from School_t
- left join Class on class.school_id = School_t.id
- left join Student on student.class_id = class.id
- where student.id is null
- group by School_t.name;
- 
- 
-
-
-
-
- 
- 
+-- 7
+SELECT School.name FROM School
+LEFT JOIN Class ON School.id = Class.school_id
+LEFT JOIN Student ON Student.class_id = Class.id
+GROUP BY School.name
+HAVING COUNT(Student.id) = 0;
