@@ -1,0 +1,130 @@
+DROP DATABASE IF EXISTS DB;
+CREATE DATABASE DB;
+USE DB;
+
+SET sql_safe_updates=0;
+SET sql_mode=only_full_group_by;
+
+create table School(
+	id int primary key auto_increment,
+    name varchar(50) not null unique
+);
+
+ create table Class(
+	id int primary key auto_increment,
+    class int,
+    check (class>=1 and class<=12),
+    paralelka enum('A','B','V'),
+    school_id int not null,
+    foreign key(school_id) references School(id)
+ );
+ 
+create table Subject(
+	id int primary key auto_increment,
+    name enum('Bel','Math','Sports')
+);
+
+create table Student(
+	id int primary key auto_increment,
+    name varchar(50) not null unique,
+    age int not null,
+    check(age>0),
+    class_id int not null,
+    foreign key(class_id) references Class(id)
+);
+ 
+create table Address(
+	id int primary key auto_increment,
+    street varchar(50) not null,
+    student_id int unique not null,
+    foreign key(student_id) references Student(id)
+);
+
+create table Grade(
+	id int primary key auto_increment,
+    student_id int not null,
+    foreign key (student_id) references Student(id),
+    subject_id int not null,
+    foreign key (subject_id) references Subject(id),
+    grade int not null, 
+    check(grade>=2 and grade<=6),
+    date date not null
+);
+
+INSERT INTO Subject(name) VALUES("Math");
+INSERT INTO Subject(name) VALUES("Bel");
+INSERT INTO Subject(name) VALUES("Sports");
+
+INSERT INTO School(name) VALUES("TUES");
+INSERT INTO School(name) VALUES("NPMG");
+INSERT INTO School(name) VALUES("15to");
+INSERT INTO School(name) VALUES("150to");
+
+INSERT INTO Class(class, paralelka, school_id) VALUES(9, "A", 1);
+INSERT INTO Class(class, paralelka, school_id) VALUES(10, "B", 2);
+INSERT INTO Class(class, paralelka, school_id) VALUES(6, "V", 3);
+
+
+
+INSERT INTO Student(name, age, class_id) VALUES("Gosho", 15, 1);
+INSERT INTO Student(name, age, class_id) VALUES("Pesho", 13, 2);
+INSERT INTO Student(name, age, class_id) VALUES("Mvae", 16, 3);
+
+INSERT INTO Address(street,student_id) VALUES("Botev",1);
+INSERT INTO Address(street,student_id) VALUES("Lomsko shose",2);
+INSERT INTO Address(street,student_id) VALUES("Levski",3);
+
+
+
+INSERT INTO Grade(subject_id, student_id, grade, date) VALUES(1, 1, 5, "2022-10-22");
+INSERT INTO Grade(subject_id, student_id, grade, date) VALUES(2, 2, 4, "2022-10-23");
+INSERT INTO Grade(subject_id, student_id, grade, date) VALUES(3, 3, 6, "2022-10-24");
+#1
+select School.name,count(Student.id) from School
+left join Class on School.id=Class.school_id
+left join Student on Student.class_id=Class.id
+group by(School.id)
+order by(count(Student.id))desc;
+#2
+select School.name,avg(Grade.grade)  from School
+left join Class on School.id=Class.school_id
+left join Student on Student.class_id=Class.id
+left join Grade on Student.id=Grade.student_id
+group by(School.id)
+order by(avg(Grade.grade)) desc
+limit 1;
+#3
+select Student.name,Subject.name,Grade.grade,Class.class,Class.paralelka,Grade.date,School.name from Student
+left join Class on Class.id=Student.class_id
+left join School on School.id=Class.school_id
+left join Grade on Student.id=Grade.student_id
+left join Subject on Grade.subject_id=Subject.id;
+#4
+select Student.name from Student
+left join Grade on Grade.student_id=Student.id
+left join Subject on Subject.id=Grade.subject_id
+where Student.name like("M%e") and Grade.date not like("%-01-%") and
+Grade.date not like("%-03-%") and Grade.date not like("%-09-%")
+and Grade.date like("2022-%") and (Subject.name="Math" or Subject.name="Sports")
+group by(Student.name)
+order by(avg(Grade.grade)) desc
+limit 1; 
+
+#5
+select School.name,Class.class,Class.paralelka,avg(Grade.grade) from Class
+left join School on School.id=Class.school_id
+left join Student on Student.class_id=Class.id
+left join Grade on Student.id=Grade.student_id
+group by(Class.id)
+order by(avg(Grade.grade)) asc;
+
+#6
+select distinct Student.name, Subject.name from Student
+left join Grade on Grade.student_id=Student.id
+left join Subject on Subject.id=Grade.subject_id;
+#group by Student.name, Subject.name;
+#7
+select School.name  from School	
+left join Class on Class.school_id=School.id
+left join Student on Student.class_id=Class.id
+where Student.id is null;
