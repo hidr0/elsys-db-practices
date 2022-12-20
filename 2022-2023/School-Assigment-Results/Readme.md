@@ -1,5 +1,5 @@
 ## Grading
-- From the folder `./assignments/` download the files which have your number on them.
+- From the current folder download the files which have your number on them.
 
 - Please copy this legend into a file with the name, grade and upload it.
 
