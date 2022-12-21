@@ -34,6 +34,6 @@ Task 4 1
 Task 5 0 (подредбата трябва да е във възходящ ред, тоест да се ползва asc вместо desc)
 Task 6 1
 Task 6 without GROUP BY, but with DISTINCT 1
-Task 7 0 (изкарва училището, което няма класове вместо ученици)
+Task 7 1
 
-Total points - 22/28
+Total points - 23/28
