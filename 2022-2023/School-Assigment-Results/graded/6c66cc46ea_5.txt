@@ -1,0 +1,42 @@
+-- Address.street not null
+-- Address.student_id not null
+-- Address.student_id unique
+--
+--
+-- Grade.grade [2,6] int
+-- Grade.date
+-- Grade.student_id
+-- Grade.subject_id
+--
+-- Subject.name enum
+-- Student.name not null
+-- Student.name unique
+--
+-- Student.age not null
+-- Student.age > 0
+-- Student.class_id not null
+--
+-- Class.class not null
+-- Class.class [1,12]
+--
+-- Class.paralelka [A,B,V]
+-- Class.school_id not null
+--
+-- School.name not null
+-- School.name unique
+--
+-- Has used foreign key 5 times
+--
+-- Task 1
+-- Task 2
+-- Task 3
+-- Task 4
+-- Task 5
+-- Task 6
+-- Task 6 without GROUP BY, but with DISTINCT
+-- Task 7
+--
+-- всичко без Class.class not null е вярно
+
+--total: 27
+
