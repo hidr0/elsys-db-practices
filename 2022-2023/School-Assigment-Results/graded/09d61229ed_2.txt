@@ -1,0 +1,39 @@
+1 Address.street not null
+0 Address.student_id not null
+0 Address.student_id unique
+
+
+1 Grade.grade [2,6] int
+1 Grade.date
+1 Grade.student_id
+1 Grade.subject_id
+
+1 Subject.name enum
+1 Student.name not null
+1 Student.name unique
+
+1 Student.age not null
+1 Student.age > 0
+1 Student.class_id not null
+
+1 Class.class not null
+1 Class.class [1,12]
+
+1 Class.paralelka [A,B,V]
+0 Class.school_id not null
+
+1 School.name not null
+1 School.name unique
+
+1 Has used foreign key 5 times
+
+0(връзките не са направени правилно и самия тест не може да се изпълни добре) Task 1
+0 Task 2
+0 Task 3
+0 Task 4
+0 Task 5
+0 Task 6
+0 Task 6 without GROUP BY, but with DISTINCT
+0 Task 7
+
+Total points - 17
